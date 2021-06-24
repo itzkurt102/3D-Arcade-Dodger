@@ -8,6 +8,7 @@ public class EndTrigger : MonoBehaviour
 
     void OnTriggerEnter()
     {
+        //This is assigned to an invisible block at the end of each level.
         gameManager.CompleteLevel();
     }
 
