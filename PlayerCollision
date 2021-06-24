@@ -6,6 +6,7 @@ public class PlayerCollision : MonoBehaviour
 {
     public PlayerMovement movement;
     
+    //If the player collides with a gameobject that contains the 'Obstacle' tag, it will trigger EndGame, which would restart the level.
     void OnCollisionEnter(Collision collisionInfo)
     {
        if (collisionInfo.collider.tag == "Obstacle")
