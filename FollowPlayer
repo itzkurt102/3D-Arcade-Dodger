@@ -15,6 +15,7 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //This would keep the camera just behind the player's game object to give a 3rd person view.
         transform.position = player.position + offset;
     }
 }
