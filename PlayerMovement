@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rb;
 
+    //the force propelling the player forward is greater than the turning force, creating a challenging scenario.
     public float forwardForce = 1000f;
     public float sidewaysForce = 500f;
 
@@ -19,18 +20,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //The code below keeps propelling the player forward. Time.deltaTime is used to keep the speed consistent, regardless of frames-per-second.
         rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
+        //Code to move the player right.
         if ( Input.GetKey("d") )
         {
             rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
+        //Code to move the player left.
         if (Input.GetKey("a"))
         {
             rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
 
+        //If the player falls off the map and their y-position becomes negative, it restarts the game.
         if (rb.position.y < -1f)
         {
             FindObjectOfType<GameManager>().EndGame();
