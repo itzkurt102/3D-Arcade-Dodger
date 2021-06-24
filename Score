@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //The code below simply uses the players z-posiion as a scoring mechanism. This does require the player's object to start at z=0
         scoreText.text = player.position.z.ToString("0");
     }
 }
